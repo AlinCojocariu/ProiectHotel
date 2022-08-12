@@ -1,6 +1,7 @@
 package com.example.appproj.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity(name = "hoteluri")
@@ -8,16 +9,22 @@ import java.util.List;
 public class HotelEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "hotel_Id")
+    //@Column(name = "hotel_Id")
     private long hotelId;
-    @Column(name = "nume")
+    //@Column(name = "nume")
     private String nume;
-    @Column(name = "adresa")
+    //@Column(name = "adresa")
     private String adresa;
-    @OneToMany(mappedBy = "camera")
+    @OneToMany(mappedBy = "cameraId")
     private List<RoomEntity> camere;
 
     public HotelEntity() {
+    }
+
+    public HotelEntity(String nume, String adresa) {
+        this.nume = nume;
+        this.adresa = adresa;
+        this.camere=new ArrayList<>();
     }
 
 

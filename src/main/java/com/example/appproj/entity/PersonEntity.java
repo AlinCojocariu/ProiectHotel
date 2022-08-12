@@ -6,19 +6,25 @@ import javax.persistence.*;
 public class PersonEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "camera_Id")
+   // @Column(name = "camera_Id")
     private long persoanaId;
-    @Column(name = "nume")
+   // @Column(name = "nume")
     private String nume;
-    @Column(name = "prenume")
+   // @Column(name = "prenume")
     private String prenume;
-    @Column(name = "varsta")
+    //@Column(name = "varsta")
     private int varsta;
     @ManyToOne
-    @JoinColumn(name = "camera_Id", referencedColumnName = "camera_Id")
+    @JoinColumn(name = "cameraId", referencedColumnName = "cameraId")
     private RoomEntity camera;
 
     public PersonEntity() {
+    }
+
+    public PersonEntity(String nume,int varsta,String prenume) {
+        this.nume = nume;
+        this.varsta=varsta;
+        this.prenume=prenume;
     }
 
 

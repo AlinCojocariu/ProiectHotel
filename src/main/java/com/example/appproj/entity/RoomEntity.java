@@ -8,17 +8,21 @@ import java.util.List;
 public class RoomEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "camera_Id")
+   // @Column(name = "camera_Id")
     private long cameraId;
-    @Column(name = "numar")
+   // @Column(name = "numar")
     private int numar;
     @ManyToOne
-    @JoinColumn(name = "hotel_Id", referencedColumnName = "hotel_Id")
+    @JoinColumn(name = "hotelId", referencedColumnName = "hotelId")
     private HotelEntity hotel;
-    @OneToMany(mappedBy = "persoana")
+    @OneToMany(mappedBy = "persoanaId")
     private List<PersonEntity> persoane;
 
     public RoomEntity() {
+    }
+
+    public RoomEntity(int numar) {
+        this.numar = numar;
     }
 
 
